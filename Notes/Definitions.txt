@@ -1,0 +1,34 @@
+Device = GPU
+Host = CPU
+Kernel = function that runs on the device
+
+Features:
+1) Thread Cooperation
+
+
+
+Calling a function :
+   Func<<< Dg, Db, Ns >>>(parameter)
+	Where Dg, Db, Ns are :
+
+	Dg is of type dim3, dimension and size of the grid
+
+	Dg.x * Dg.y = number of blocks being launched;
+
+	Db is of type dim3, dimension and size of each block
+
+	Db.x * Db.y * Db.z = number of threads per block;
+
+	Ns is of type size_t, number of bytes in shared memory that is dynamically allocated in addition to the statically allocated memory
+
+	Ns is an optional argument which defaults to 0.
+
+	Built-in Variables
+
+	gridDim is of type dim3, dimensions of the grid.
+
+	blockIdx is of type uint3, block index within the grid.
+
+	blockDim is of type dim3, dimensions of the block.
+
+	threadIdx is of type uint3, thread index within the block.
